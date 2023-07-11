@@ -1,6 +1,4 @@
 #include <windows.h>
-#include <iostream>
-#include <format>
 #include <string>
 
 class _Console

@@ -1,6 +1,6 @@
-#include <windows.h>
+﻿#include <windows.h>
 #include "Utils/Console.h"
-
+#include "Misc/Misc.h"
 
 DWORD WINAPI OnAttach(LPVOID Module)
 {
@@ -10,12 +10,13 @@ DWORD WINAPI OnAttach(LPVOID Module)
 
     Console.Write("Initialization.");
     {
-
+        Misc.SetClantag("custom tag\n");
+        Console.Write("Tag was set!");
     }
     Console.Write("All done.");
 
     while (!GetAsyncKeyState(VK_DELETE));
-
+    
     Console.Free();
     FreeLibraryAndExitThread((HMODULE)Module, 1);
 }
