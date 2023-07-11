@@ -1,15 +1,18 @@
 #include <windows.h>
+#include <iostream>
+#include <format>
+#include <string>
 
 class _Console
 {
 private:
 	HANDLE _out, _in, _err;
 	HANDLE _out_bac, _in_bac, _err_bac;
+	bool IsAllocated();
 
 public:
-	void Allocate(PVOID Module);
-	void Write(const char* Str);
-	void Write(int Data);
+	void Allocate();
+	void Write(const char* Str, ...);
 	void Free();
 };
 

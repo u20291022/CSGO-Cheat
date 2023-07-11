@@ -1,13 +1,18 @@
 #include <windows.h>
 #include "Utils/Console.h"
 
+
 DWORD WINAPI OnAttach(LPVOID Module)
 {
-    Console.Allocate(Module);
+#ifdef _DEBUG
+    Console.Allocate();
+#endif // DEBUG
 
-    Console.Write("Hello, world!");
-    Console.Write("I'm new here!");
-    Console.Write(5000);
+    Console.Write("Initialization.");
+    {
+
+    }
+    Console.Write("All done.");
 
     while (!GetAsyncKeyState(VK_DELETE));
 
